@@ -15,14 +15,16 @@ declare module '@tanstack/react-router' {
         router: typeof router
     }
 }
-
+import { CookiesProvider } from 'react-cookie'
 // Render the app
 const rootElement = document.getElementById('root')!
 if (!rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement)
     root.render(
         <StrictMode>
-            <RouterProvider router={router} />
+            <CookiesProvider defaultSetOptions={{ path: '/' }}>
+                <RouterProvider router={router} />
+            </CookiesProvider>
         </StrictMode>
     )
 }

@@ -121,4 +121,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  html, body, #root {
+    @apply relative flex flex-col min-h-screen;
+  }
 }
+
