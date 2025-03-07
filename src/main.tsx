@@ -1,13 +1,23 @@
+import '@styles/index.css'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import '@styles/index.css'
 
 // Import the generated route tree
+import { CookiesProvider } from 'react-cookie'
 import { routeTree } from './routeTree.gen'
 
+export interface RouterContext {
+    isAuthenticated: boolean
+}
+
 // Create a new router instance
-const router = createRouter({ routeTree })
+const router = createRouter({
+    routeTree,
+    context: {
+        isAuthenticated: localStorage.getItem('isAuthenticated') === 'true',
+    },
+})
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
@@ -15,7 +25,7 @@ declare module '@tanstack/react-router' {
         router: typeof router
     }
 }
-import { CookiesProvider } from 'react-cookie'
+
 // Render the app
 const rootElement = document.getElementById('root')!
 if (!rootElement.innerHTML) {

@@ -9,8 +9,25 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@components/ui/sidebar'
-import { HardDrive, Trash, UsersRound } from 'lucide-react'
+import {
+    FileUp,
+    FolderPlus,
+    FolderUp,
+    HardDrive,
+    Plus,
+    Trash,
+    UsersRound,
+} from 'lucide-react'
 import { StorageCapacity } from '@components/storage-capacity'
+import { Button } from '@components/ui/button'
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@components/ui/dropdown-menu'
 
 const items = [
     {
@@ -39,6 +56,36 @@ const AppSidebar = () => {
                 </span>
             </SidebarHeader>
             <SidebarContent>
+                <SidebarGroup>
+                    {/* <SidebarGroupContent>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    className="w-full justify-start"
+                                    variant="ghost"
+                                >
+                                    <Plus />
+                                    Mới
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56">
+                                <DropdownMenuItem>
+                                    <FolderPlus />
+                                    Thư mục mới
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>
+                                    <FileUp />
+                                    Tải tệp lên
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <FolderUp />
+                                    Tải thư mục lên
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </SidebarGroupContent> */}
+                </SidebarGroup>
                 <SidebarGroup>
                     <SidebarGroupContent>
                         <SidebarMenu>
